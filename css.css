@@ -1,0 +1,84 @@
+/* Custom scrollbar */
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #e5e7eb;
+  }
+  
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 20px;
+  }
+  
+  .dark .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #6b7280;
+  }
+  
+  /* Message bubbles */
+  .message {
+    @apply max-w-3xl mx-auto px-4 py-2 rounded-lg shadow-sm animate-fadeIn;
+  }
+  
+  .user-message {
+    @apply bg-blue-600 text-white self-end rounded-br-none;
+  }
+  
+  .ai-message {
+    @apply bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 self-start rounded-bl-none border dark:border-gray-600;
+  }
+  
+  /* Typing indicator */
+  .typing {
+    @apply flex items-center space-x-1 p-2 text-gray-500 dark:text-gray-400 text-sm;
+  }
+  
+  .typing span {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: currentColor;
+    opacity: 0.4;
+    animation: pulse 1.4s infinite ease-in-out;
+  }
+  
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(0.8); opacity: 0.4; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #sidebar {
+      width: 80%;
+      transform: translateX(-100%);
+    }
+  
+    #sidebar.open {
+      transform: translateX(0);
+    }
+  
+    #chat-container {
+      padding-bottom: 8rem;
+    }
+  }
